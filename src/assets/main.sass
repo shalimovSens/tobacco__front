@@ -2,6 +2,25 @@
 @tailwind components
 @tailwind utilities
 
+@font-face
+    font-family: 'Ubuntu'
+    src: url('../fonts/Ubuntu-Regular.woff2')
+    font-weight: 400
+    font-style: normal
+    display: swap
+@font-face
+    font-family: 'Ubuntu'
+    src: url('../fonts/Ubuntu-Medium.woff2')
+    font-weight: 500
+    font-style: normal
+    display: swap
+@font-face
+    font-family: 'Ubuntu'
+    src: url('../fonts/Ubuntu-Bold.woff2')
+    font-weight: 700
+    font-style: normal
+    display: swap
+
 
 *, *::after, *::before
     box-sizing: border-box
@@ -58,11 +77,10 @@ html
 
 body
     min-height: 100%
-    font-weight: 400
-    // font-family: 'Ubuntu'
+    font-weight: 500
+    font-family: 'Ubuntu'
     line-height: 1.2
-    // color: $black
-    // font-size: $font-size-s
+    font-size: 16px
 
 @media (prefers-reduced-motion: reduce)
     * 
