@@ -4,7 +4,7 @@ import ContainerLayout from './ContainerLayout.vue'
 </script>
 <template>
     <HeaderLayout />
-    <main class="flex-auto">
+    <main class="flex-auto py-8">
         <ContainerLayout>
             <slot />
         </ContainerLayout>

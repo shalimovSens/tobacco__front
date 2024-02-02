@@ -5,8 +5,10 @@ import ContainerLayout from './ContainerLayout.vue';
 <template>
     <header>
         <ContainerLayout>
-            <div>
-                Header
+            <div class="h-20 flex flex-row items-center">
+                <h1 class="text-3xl">
+                    Инвентаризация Табак
+                </h1>
             </div>
         </ContainerLayout>
     </header>
