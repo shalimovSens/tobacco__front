@@ -2,8 +2,9 @@
 import FormInput from '@/components/inputs/FormInput.vue'
 import FormBtn from '../inputs/FormBtn.vue'
 
-import { getFirstDateInventory, } from '@/requests/inventories'
+import { getFirstDateInventory, createInventory, } from '@/requests/inventories'
 import { getCurrentDate } from '@/utils'
+import router from '@/router';
 
 import { onMounted, ref } from 'vue';
 
@@ -21,11 +22,22 @@ onMounted(async () => {
         })
         .catch(err => console.error(err))
 })
+
+const formSubmitHandle = async () => {
+    isDisabled.value = true
+
+    await createInventory(firstDate.value, lastDate.value)
+        .then(data => {
+            router.back()
+        })
+        .catch(err => console.error(err))
+    isDisabled.value = false
+}
 </script>
 <template>
     <form 
         class="flex flex-row flex-wrap gap-y-3.5 items-center justify-between"
-        @submit.prevent
+        @submit.prevent="formSubmitHandle"
     >
         <div class="sm:basis-47/100 basis-full">
             <FormInput 

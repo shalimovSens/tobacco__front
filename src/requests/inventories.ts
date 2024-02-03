@@ -26,3 +26,20 @@ export const getFirstDateInventory = async () => {
         .then(res => res.data)
         .catch(err => console.error(err))
 }
+
+export const createInventory = async (firstDate: string, lastDate: string) => {
+    return instance.post('/create', {
+        "start_date": `${firstDate}`,
+        "end_date": `${lastDate}`,          
+    })
+    // return instance({
+    //     url: '/create',
+    //     method: 'POST',
+    //     data: {
+    //         "start_date": `${firstDate}`,
+    //         "end_date": `${lastDate}`,      
+    //     }
+    // })
+        .then(res => res.data)
+        .catch(err => console.error(err))
+}
