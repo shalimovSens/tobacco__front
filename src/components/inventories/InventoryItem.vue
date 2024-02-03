@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { deleteInventory, } from '@/requests/inventories'
+import { ref } from 'vue';
 
 
 defineProps<{
@@ -8,11 +9,23 @@ defineProps<{
     id: number,
 }>()
 
+const emit = defineEmits<{
+    (e: 'updateList', ): void
+}>()
+
+const isDeleting = ref<boolean>(false)
+
 
 const deleteClickHandle = async (inventoryId: number) => {
+    if (isDeleting.value) return 
+
+    isDeleting.value = true
+
     await deleteInventory(inventoryId)
-        .then(res => console.log(res))
+        .then(res => emit('updateList'))
         .catch(err => console.error(err))
+
+    isDeleting.value = false
 }
 </script>
 

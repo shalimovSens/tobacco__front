@@ -8,11 +8,18 @@ import InventoryItem from './InventoryItem.vue'
 
 const inventoryList = ref()
 
-onMounted(async () => {
+const storageInventories = async () => {
     await getInventories()
-        .then(res => inventoryList.value = res)
+        .then(data => inventoryList.value = data)
+        // .then(data => console.log(data))
         .catch(err => console.error(err))
+}
+
+onMounted(async () => {
+    await storageInventories()
 })
+
+
 </script>
 
 <template>
@@ -41,6 +48,7 @@ onMounted(async () => {
             :id="item.id"
             :start-date="item.start_date"
             :end-date="item.end_date"
+            @update-list="storageInventories"
         />      
     </ul>
 </template>
