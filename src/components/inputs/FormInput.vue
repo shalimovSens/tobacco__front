@@ -1,30 +1,35 @@
 <script setup lang="ts">
 import { vMaska } from "maska"
 
-import { ref } from "vue";
-
 
 defineProps<{
     placheholder: string,
+    modelValue: string,
+    isRequired: boolean,
+    isDisabled: boolean,
+}>()
+defineEmits<{
+    (e: 'update:modelValue', value: string ): void
 }>()
 
-const inputValue = ref<string>()
 </script>
 <template>
-    <div class="input pt-5">
+    <div class="input py-5">
         <div class="relative">
             <input 
                 type="text"
-                class="bg-stone-800 py-3.5 px-2 text-lg rounded w-full z-10"
-
+                class="border-solid border-2 border-stone-700 bg-transparent py-3.5 px-2 text-lg rounded w-full z-10 relative"
                 v-maska
                 data-maska="##.##.####"
-                v-model="inputValue"
+                :value="modelValue"
+                @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+                :required="isRequired"
+                :disabled="isDisabled"
             >
             <div 
                 class="input__placeholder absolute left-2 top-1/2 -translate-y-1/2 z-0 select-none transition-all duration-200 ease-out opacity-80"
                 :class="{
-                    'input__placeholder_active': inputValue
+                    'input__placeholder_active': modelValue
                 }"
             >
                 {{ placheholder }}

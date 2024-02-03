@@ -9,6 +9,9 @@ export default {
             dropShadow: {
                 'white': '0px 0px 2px rgb(255 255 255 / 0.2)'
             },
+            flexBasis: {
+                '47/100': '47%',
+            },
         },
     },
     plugins: [],

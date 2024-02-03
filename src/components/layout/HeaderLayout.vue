@@ -6,9 +6,11 @@ import ContainerLayout from './ContainerLayout.vue';
     <header>
         <ContainerLayout>
             <div class="h-20 flex flex-row items-center">
-                <h1 class="text-3xl select-none">
-                    Инвентаризация Табак
-                </h1>
+                <RouterLink to="/">
+                    <h1 class="text-3xl select-none">
+                        Инвентаризация Табак
+                    </h1>
+                </RouterLink>
             </div>
         </ContainerLayout>
     </header>
