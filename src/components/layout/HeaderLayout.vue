@@ -6,7 +6,7 @@ import ContainerLayout from './ContainerLayout.vue';
     <header>
         <ContainerLayout>
             <div class="h-20 flex flex-row items-center">
-                <h1 class="text-3xl">
+                <h1 class="text-3xl select-none">
                     Инвентаризация Табак
                 </h1>
             </div>

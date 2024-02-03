@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "maska": "^2.1.11",
     "sass": "^1.70.0",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"

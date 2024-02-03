@@ -20,3 +20,9 @@ export const deleteInventory = async (inventoryId: number) => {
         .then(res => res.data)
         .catch(err => console.error(err))
 }
+
+export const getFirstDateInventory = async () => {
+    return instance.get('/get_last_date')
+        .then(res => res.data)
+        .catch(err => console.error(err))
+}

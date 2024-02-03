@@ -2,6 +2,7 @@
 import { getInventories } from '@/requests/inventories'
 
 import { onMounted, ref } from 'vue'
+import { RouterLink } from 'vue-router';
 
 import InventoryItem from './InventoryItem.vue'
 
@@ -25,22 +26,24 @@ onMounted(async () => {
 <template>
     <ul class="flex flex-col align-stretch gap-y-4">
         <li>
-            <button
-                class="
-                    py-3.5
-                    px-1.5
-                    cursor-pointer
-                    text-lg
-                    text-center
-                    rounded
-                    bg-stone-800
-                    hover:bg-stone-700
-                    transition-colors
-                    w-full
-                "
-            >
-                Создать
-            </button>
+            <RouterLink to="/create">
+                <button
+                    class="
+                        py-3.5
+                        px-1.5
+                        cursor-pointer
+                        text-lg
+                        text-center
+                        rounded
+                        bg-stone-800
+                        hover:bg-stone-700
+                        transition-colors
+                        w-full
+                    "
+                >
+                    Создать
+                </button>
+            </RouterLink>
         </li>  
         <InventoryItem 
             v-for="item in inventoryList"
