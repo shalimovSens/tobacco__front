@@ -1,26 +1,29 @@
 <script setup lang="ts">
-import FormInput from '@/components/inputs/FormInput.vue'
+import FormInput from '../inputs/FormInput.vue'
 import FormBtn from '../inputs/FormBtn.vue'
 
 import { getFirstDateInventory, createInventory, } from '@/requests/inventories'
 import { getCurrentDate } from '@/utils'
-import router from '@/router';
 
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue'
+
+const emit = defineEmits<{
+    (e: 'updateList', ): void
+}>()
 
 const firstDate = ref<string>('')
 const lastDate = ref<string>('')
 
 const isDisabled = ref<boolean>(true)
 
+
 onMounted(async () => {
-    lastDate.value = getCurrentDate()
     await getFirstDateInventory()
         .then(data => {
             firstDate.value = data
             isDisabled.value = false
         })
-        .catch(err => console.error(err))
+    lastDate.value = getCurrentDate()
 })
 
 const formSubmitHandle = async () => {
@@ -28,9 +31,10 @@ const formSubmitHandle = async () => {
 
     await createInventory(firstDate.value, lastDate.value)
         .then(data => {
-            router.back()
+            emit('updateList')
+            firstDate.value = ''
+            lastDate.value = ''
         })
-        .catch(err => console.error(err))
     isDisabled.value = false
 }
 </script>
@@ -45,6 +49,7 @@ const formSubmitHandle = async () => {
                 v-model="firstDate"
                 :is-required="true"
                 :is-disabled="isDisabled"
+                :maska="'##.##.####'"
             />
         </div>
         <div class="sm:basis-47/100 basis-full">
@@ -53,6 +58,7 @@ const formSubmitHandle = async () => {
                 v-model="lastDate"
                 :is-required="true"
                 :is-disabled="isDisabled"
+                :maska="'##.##.####'"
             />
         </div>
         <div class="basis-full">

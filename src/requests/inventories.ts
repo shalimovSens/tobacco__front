@@ -1,4 +1,3 @@
-// import instance from "./instance"
 import axios from "axios"
 
 const instance = axios.create({
@@ -32,14 +31,13 @@ export const createInventory = async (firstDate: string, lastDate: string) => {
         "start_date": `${firstDate}`,
         "end_date": `${lastDate}`,          
     })
-    // return instance({
-    //     url: '/create',
-    //     method: 'POST',
-    //     data: {
-    //         "start_date": `${firstDate}`,
-    //         "end_date": `${lastDate}`,      
-    //     }
-    // })
+
+        .then(res => res.data)
+        .catch(err => console.error(err))
+}
+
+export const getInventoryById = async (id: number) => {
+    return instance.get(`/get/${id}`)
         .then(res => res.data)
         .catch(err => console.error(err))
 }

@@ -1,20 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import IndexView from '../views/IndexView.vue'
-import CreateInventoryView from '../views/CreateInventoryView.vue'
+
+import InventoriesView from '../views/InventoriesView.vue'
+import WeighingsView from '@/views/WeighingsView.vue'
+import ContainersView from '@/views/ContainersView.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'index',
-      component: IndexView
+      name: 'inventories',
+      component: InventoriesView
     },
     {
-        path: '/create',
-        name: 'createInventory',
-        component: CreateInventoryView,
+        path: '/inventory/:id',
+        name: 'weighings',
+        component: WeighingsView,
     },
+    {
+        path: '/containers',
+        name: 'containers',
+        component: ContainersView,
+    }
   ]
 })
 

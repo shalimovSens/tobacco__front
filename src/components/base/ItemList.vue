@@ -1,29 +1,25 @@
 <script setup lang="ts">
-import { deleteInventory, } from '@/requests/inventories'
 import { ref } from 'vue';
 
 
-defineProps<{
-    startDate: string,
-    endDate: string,
-    id: number,
+const props = defineProps<{
+    id: number
+    link?: string
 }>()
 
 const emit = defineEmits<{
-    (e: 'updateList', ): void
+    (e: 'deleteItem', id: number) : void
 }>()
 
 const isDeleting = ref<boolean>(false)
 
 
-const deleteClickHandle = async (inventoryId: number) => {
+const deleteClickHandle = async () => {
     if (isDeleting.value) return 
 
     isDeleting.value = true
 
-    await deleteInventory(inventoryId)
-        .then(res => emit('updateList'))
-        .catch(err => console.error(err))
+    emit('deleteItem', props.id)
 
     isDeleting.value = false
 }
@@ -43,14 +39,19 @@ const deleteClickHandle = async (inventoryId: number) => {
         justify-between
         items-center
         select-none
+        relative
     ">
-        <div>
+        <router-link
+            v-if="link"
+            :to="link" 
+        />
+        <div class="w-8 h-8">
 
         </div>
-        {{ startDate }}  &mdash;  {{ endDate }}
+        <slot />
         <div
             class="w-8 h-8 relative cursor-pointer hover:drop-shadow-white"
-            @click="deleteClickHandle(id)"
+            @click="deleteClickHandle()"
         >
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -68,4 +69,8 @@ const deleteClickHandle = async (inventoryId: number) => {
     li:hover
         svg
             display: block
+    a
+        position: absolute
+        inset: 0
+        cursor: default
 </style>

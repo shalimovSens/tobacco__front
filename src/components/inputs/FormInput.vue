@@ -7,6 +7,7 @@ defineProps<{
     modelValue: string,
     isRequired: boolean,
     isDisabled: boolean,
+    maska?: string,
 }>()
 defineEmits<{
     (e: 'update:modelValue', value: string ): void
@@ -20,7 +21,7 @@ defineEmits<{
                 type="text"
                 class="border-solid border-2 border-stone-700 bg-transparent py-3.5 px-2 text-lg rounded w-full z-10 relative"
                 v-maska
-                data-maska="##.##.####"
+                :data-maska="maska"
                 :value="modelValue"
                 @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
                 :required="isRequired"
