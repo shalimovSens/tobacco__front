@@ -28,3 +28,9 @@ export const createWeighing = async (weighing: Weighing) => {
         .then(res => res.data)
         .catch(err => console.error(err))
 }
+
+export const getTotalWeight = async (inventoryId: number): Promise<number[]> => {
+    return instance.get(`/total_weight/${inventoryId}`)
+        .then(res => res.data)
+        .catch(err => console.error(err))
+}
