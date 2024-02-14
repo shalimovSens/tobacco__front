@@ -24,9 +24,11 @@ Backend stack: FastAPI & SQLAlchemy & SQLite
 ## Launching the application
 I recommend using yarn
 
-Install dependencies
-`yarn`
-Launch for dev
-`yarn dev`
-or launch for production
-`yarn build`
+Install dependencies   
+`yarn`   
+
+Launch for dev   
+`yarn dev`   
+
+or launch for production   
+`yarn build`   
