@@ -1,2 +1,11 @@
 # Tobacco inventory application  
-by [shalimovSens](https://github.com/shalimovSens) & [Evgeny011](https://github.com/Evgeny011)
+
+## Created by [shalimovSens](https://github.com/shalimovSens) - frontend & [Evgeny011](https://github.com/Evgeny011) - backend
+
+### Launching the application
+I recommend using yarn
+
+`
+yarn
+yarn dev
+`
