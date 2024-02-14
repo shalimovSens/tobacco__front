@@ -1,2 +1,2 @@
 # Tobacco inventory application
-## by @shalimovSens & @Evgeny011
+## by [shalimovSens](https://github.com/shalimovSens) & [Evgeny011](https://github.com/Evgeny011)
