@@ -1,4 +1,4 @@
-# Tobacco inventory application  
+# Tobacco inventory application 🚬🚬🚬🚬
 
 ## Created by [shalimovSens](https://github.com/shalimovSens) & [Evgeny011](https://github.com/Evgeny011)
 
