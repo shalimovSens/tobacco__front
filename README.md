@@ -6,6 +6,6 @@
 I recommend using yarn
 
 `
-yarn
+yarn   
 yarn dev
 `
