@@ -1,11 +1,32 @@
 # Tobacco inventory application  
 
-## Created by [shalimovSens](https://github.com/shalimovSens) - frontend & [Evgeny011](https://github.com/Evgeny011) - backend
+## Created by [shalimovSens](https://github.com/shalimovSens) & [Evgeny011](https://github.com/Evgeny011)
 
-### Launching the application
+### Technologies I used in the project:
+
+- Vue (Composition Api)
+- TypeScript
+- Vue-router
+- Sass (scss)
+- TailwindCSS
+- Vite
+- Axios
+- yarn
+- eslint
+- nginx for deploy on VPS
+
+
+
+### Backend repository: https://github.com/Evgeny011/tobacco_back
+Backend stack: FastAPI & SQLAlchemy & SQLite
+
+
+## Launching the application
 I recommend using yarn
 
-`
-yarn<br>
-yarn dev
-`
+Install dependencies
+`yarn`
+Launch for dev
+`yarn dev`
+or launch for production
+`yarn build`
